@@ -11,5 +11,6 @@
 @interface ViewController : UIViewController
 
 @property (nonatomic, strong)NSArray* ninjas;
+@property (weak, nonatomic) IBOutlet UITableView *table;
 
 @end
