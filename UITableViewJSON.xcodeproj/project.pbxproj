@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA6F0640176011B800D4331B /* 50-50.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA6F063F176011B800D4331B /* 50-50.jpg */; };
+		CA6F0642176011C100D4331B /* 300-300.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA6F0641176011C100D4331B /* 300-300.jpg */; };
 		CA934CAE175D63D400D9D922 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CA934C9C175D63D400D9D922 /* AFHTTPClient.m */; };
 		CA934CAF175D63D400D9D922 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CA934C9E175D63D400D9D922 /* AFHTTPRequestOperation.m */; };
 		CA934CB0175D63D400D9D922 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CA934CA0175D63D400D9D922 /* AFImageRequestOperation.m */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA6F063F176011B800D4331B /* 50-50.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "50-50.jpg"; sourceTree = "<group>"; };
+		CA6F0641176011C100D4331B /* 300-300.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "300-300.jpg"; sourceTree = "<group>"; };
 		CA934C9B175D63D400D9D922 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		CA934C9C175D63D400D9D922 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		CA934C9D175D63D400D9D922 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 		CA939296175B20B700F57F01 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CA6F0641176011C100D4331B /* 300-300.jpg */,
+				CA6F063F176011B800D4331B /* 50-50.jpg */,
 				CA939297175B20B700F57F01 /* UITableViewJSON-Info.plist */,
 				CA939298175B20B700F57F01 /* InfoPlist.strings */,
 				CA93929B175B20B700F57F01 /* main.m */,
@@ -218,6 +224,8 @@
 				CA9392A4175B20B700F57F01 /* Default@2x.png in Resources */,
 				CA9392A6175B20B700F57F01 /* Default-568h@2x.png in Resources */,
 				CA9392AC175B20B700F57F01 /* ViewController.xib in Resources */,
+				CA6F0640176011B800D4331B /* 50-50.jpg in Resources */,
+				CA6F0642176011C100D4331B /* 300-300.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
