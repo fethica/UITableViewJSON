@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "AFJSONRequestOperation.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface ViewController ()
 
@@ -18,18 +20,24 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.ninjas = @[@"Naruto Uzumaki",
-                    @"Sakura Haruno",
-                    @"Sasuke Uchiwa",
-                    @"Kakashi Hatake",
-                    @"Gaï Maito",
-                    @"Neji Hyûga",
-                    @"Shikamaru Nara",
-                    @"Itachi Uchiwa",
-                    @"Chôji Akimichi",
-                    @"Asuma Sarutobi",
-                    @"Ino Yamanaka",
-                    @"Hinata Hyûga"];
+    
+    self.ninjas = [[NSArray alloc] init];
+    
+    NSURL *json = [[NSURL alloc] initWithString:@"http://fethica.github.io/UITableViewJSON/characters.json"];
+    
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:json];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+        self.ninjas = [JSON allObjects];
+        NSLog(@"Success %@", self.ninjas[0][@"name"]);
+        [self.table reloadData];
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        NSLog(@"NSError: %@", error.localizedDescription);
+    }];
+    
+    [operation start];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,7 +55,9 @@
                 reuseIdentifier:@"cell"];
     }
     
-    cell.textLabel.text = self.ninjas[indexPath.row];
+    cell.textLabel.text = self.ninjas[indexPath.row][@"name"];
+    [cell.imageView setImageWithURL:[NSURL URLWithString:self.ninjas[indexPath.row][@"thumbnail"]]
+                   placeholderImage:[UIImage imageNamed:@"50-50.jpg"]];
     return cell;
 }
 
@@ -55,4 +65,8 @@
     return self.ninjas.count;
 }
 
+- (void)viewDidUnload {
+    [self setTable:nil];
+    [super viewDidUnload];
+}
 @end
