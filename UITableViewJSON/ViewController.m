@@ -65,6 +65,10 @@
     return self.ninjas.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 50.0f;
+}
+
 - (void)viewDidUnload {
     [self setTable:nil];
     [super viewDidUnload];
