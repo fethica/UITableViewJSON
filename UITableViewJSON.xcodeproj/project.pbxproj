@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA56480717629ECA002BDF9E /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA56480517629ECA002BDF9E /* DetailViewController.m */; };
+		CA56480817629ECA002BDF9E /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA56480617629ECA002BDF9E /* DetailViewController.xib */; };
 		CA6F0640176011B800D4331B /* 50-50.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA6F063F176011B800D4331B /* 50-50.jpg */; };
 		CA6F0642176011C100D4331B /* 300-300.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA6F0641176011C100D4331B /* 300-300.jpg */; };
 		CA934CAE175D63D400D9D922 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CA934C9C175D63D400D9D922 /* AFHTTPClient.m */; };
@@ -32,6 +34,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA56480417629ECA002BDF9E /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		CA56480517629ECA002BDF9E /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		CA56480617629ECA002BDF9E /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		CA6F063F176011B800D4331B /* 50-50.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "50-50.jpg"; sourceTree = "<group>"; };
 		CA6F0641176011C100D4331B /* 300-300.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "300-300.jpg"; sourceTree = "<group>"; };
 		CA934C9B175D63D400D9D922 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
@@ -146,6 +151,9 @@
 				CA93929F175B20B700F57F01 /* AppDelegate.m */,
 				CA9392A7175B20B700F57F01 /* ViewController.h */,
 				CA9392A8175B20B700F57F01 /* ViewController.m */,
+				CA56480417629ECA002BDF9E /* DetailViewController.h */,
+				CA56480517629ECA002BDF9E /* DetailViewController.m */,
+				CA56480617629ECA002BDF9E /* DetailViewController.xib */,
 				CA9392AA175B20B700F57F01 /* ViewController.xib */,
 				CA939296175B20B700F57F01 /* Supporting Files */,
 			);
@@ -226,6 +234,7 @@
 				CA9392AC175B20B700F57F01 /* ViewController.xib in Resources */,
 				CA6F0640176011B800D4331B /* 50-50.jpg in Resources */,
 				CA6F0642176011C100D4331B /* 300-300.jpg in Resources */,
+				CA56480817629ECA002BDF9E /* DetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +257,7 @@
 				CA934CB4175D63D400D9D922 /* AFURLConnectionOperation.m in Sources */,
 				CA934CB5175D63D400D9D922 /* AFXMLRequestOperation.m in Sources */,
 				CA934CB6175D63D400D9D922 /* UIImageView+AFNetworking.m in Sources */,
+				CA56480717629ECA002BDF9E /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
