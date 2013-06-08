@@ -35,4 +35,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidUnload {
+    [self setPhoto:nil];
+    [self setDesc:nil];
+    [super viewDidUnload];
+}
 @end
