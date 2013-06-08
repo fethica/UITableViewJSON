@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "AFJSONRequestOperation.h"
 #import "UIImageView+AFNetworking.h"
+#import "DetailViewController.h"
 
 @interface ViewController ()
 
@@ -67,6 +68,18 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 50.0f;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    DetailViewController *detail =[[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+    
+    [self.navigationController pushViewController:detail animated:YES];
+    
+    detail.title = self.ninjas[indexPath.row][@"name"];
+    [detail.photo setImageWithURL:[NSURL URLWithString:self.ninjas[indexPath.row][@"photo"]] placeholderImage:[UIImage imageNamed:@"300-300.jpg"]];
+    detail.desc.text = self.ninjas[indexPath.row][@"description"];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 - (void)viewDidUnload {
