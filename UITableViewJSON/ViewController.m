@@ -31,7 +31,6 @@
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         
         self.ninjas = [JSON allObjects];
-        NSLog(@"Success %@", self.ninjas[0][@"name"]);
         [self.table reloadData];
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         NSLog(@"NSError: %@", error.localizedDescription);
