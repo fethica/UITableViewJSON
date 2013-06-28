@@ -21,7 +21,7 @@
         self.name = aName;
         self.thumbnail = aThumbnail;
         self.photo = aPhoto;
-        self.description = aDescription;
+        self.desc = aDescription;
     }
     
     return self;

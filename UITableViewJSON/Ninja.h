@@ -13,7 +13,7 @@
 @property (strong, nonatomic)NSString *name;
 @property (strong, nonatomic)NSString *thumbnail;
 @property (strong, nonatomic)NSString *photo;
-@property (strong, nonatomic)NSString *description;
+@property (strong, nonatomic)NSString *desc;
 
 - (id)initWithName:(NSString *)aName
          thumbnail:(NSString *)aThumbnail
