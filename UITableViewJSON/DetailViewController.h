@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Ninja.h"
 
 @interface DetailViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIImageView *photo;
 @property (weak, nonatomic) IBOutlet UITextView *desc;
+
+- (void)loadFromNinja:(Ninja *)ninja;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface DetailViewController ()
 
@@ -33,6 +34,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)loadFromNinja:(Ninja *)ninja {
+    self.title = [ninja name];
+    [self.photo setImageWithURL:[NSURL URLWithString:ninja.photo]
+                 placeholderImage:[UIImage imageNamed:@"300-300.jpg"]];
+    self.desc.text = ninja.desc;
 }
 
 - (void)viewDidUnload {

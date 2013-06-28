@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Ninja.h"
 
 @interface ViewController : UIViewController
 
-@property (nonatomic, strong)NSArray* ninjas;
+@property (nonatomic, strong)NSMutableArray *ninjas;
 @property (weak, nonatomic) IBOutlet UITableView *table;
 
 @end

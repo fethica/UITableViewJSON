@@ -21,23 +21,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.title = @"Characters";
-    self.ninjas = [[NSArray alloc] init];
+    self.title = @"Ninjas";
+    self.ninjas = [[NSMutableArray alloc] init];
     
-    NSURL *json = [[NSURL alloc] initWithString:@"http://fethica.github.io/UITableViewJSON/characters.json"];
-    
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:json];
-    
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        
-        self.ninjas = [JSON allObjects];
-        [self.table reloadData];
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        NSLog(@"NSError: %@", error.localizedDescription);
-    }];
-    
-    [operation start];
-    
+    [self loadNinjas];
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,8 +42,8 @@
                 reuseIdentifier:@"cell"];
     }
     
-    cell.textLabel.text = self.ninjas[indexPath.row][@"name"];
-    [cell.imageView setImageWithURL:[NSURL URLWithString:self.ninjas[indexPath.row][@"thumbnail"]]
+    cell.textLabel.text = [self.ninjas[indexPath.row] name];
+    [cell.imageView setImageWithURL:[NSURL URLWithString:[self.ninjas[indexPath.row] thumbnail]]
                    placeholderImage:[UIImage imageNamed:@"50-50.jpg"]];
     return cell;
 }
@@ -73,12 +60,31 @@
     DetailViewController *detail =[[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
     
     [self.navigationController pushViewController:detail animated:YES];
-    
-    detail.title = self.ninjas[indexPath.row][@"name"];
-    [detail.photo setImageWithURL:[NSURL URLWithString:self.ninjas[indexPath.row][@"photo"]] placeholderImage:[UIImage imageNamed:@"300-300.jpg"]];
-    detail.desc.text = self.ninjas[indexPath.row][@"description"];
+
+    [detail loadFromNinja:self.ninjas[indexPath.row]];
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
+- (void)loadNinjas {
+    
+    NSURL *json = [[NSURL alloc] initWithString:@"http://fethica.github.io/UITableViewJSON/characters.json"];
+    
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:json];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        
+        for (NSDictionary *dic in [JSON allObjects]) {
+            Ninja *ninja = [[Ninja alloc] initWithName:dic[@"name"] thumbnail:dic[@"thumbnail"] photo:dic[@"photo"] description:dic[@"description"]];
+            [self.ninjas addObject:ninja];
+        }
+        
+        [self.table reloadData];
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        NSLog(@"NSError: %@", error.localizedDescription);
+    }];
+    
+    [operation start];
 }
 
 - (void)viewDidUnload {
