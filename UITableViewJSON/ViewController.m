@@ -74,10 +74,14 @@
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         
-        for (NSDictionary *dic in [JSON allObjects]) {
+        NSMutableArray *tempNinjas = [[NSMutableArray alloc] init];
+        
+        for (NSDictionary *dic in JSON) {
             Ninja *ninja = [[Ninja alloc] initWithName:dic[@"name"] thumbnail:dic[@"thumbnail"] photo:dic[@"photo"] description:dic[@"description"]];
-            [self.ninjas addObject:ninja];
+            [tempNinjas addObject:ninja];
         }
+        
+        self.ninjas = [[NSArray alloc] initWithArray:tempNinjas];
         
         [self.table reloadData];
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
