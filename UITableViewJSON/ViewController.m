@@ -77,7 +77,7 @@
         NSMutableArray *tempNinjas = [[NSMutableArray alloc] init];
         
         for (NSDictionary *dic in JSON) {
-            Ninja *ninja = [[Ninja alloc] initWithName:dic[@"name"] thumbnail:dic[@"thumbnail"] photo:dic[@"photo"] description:dic[@"description"]];
+            Ninja *ninja = [[Ninja alloc] initWithDictionary:dic];
             [tempNinjas addObject:ninja];
         }
         
