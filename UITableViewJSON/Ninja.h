@@ -20,4 +20,6 @@
              photo:(NSString *)aPhoto
        description:(NSString *)aDescription;
 
+- (id)initWithDictionary:(NSDictionary *)dic;
+
 @end

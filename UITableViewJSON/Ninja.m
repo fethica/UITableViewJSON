@@ -27,6 +27,11 @@
     return self;
 }
 
+- (id)initWithDictionary:(NSDictionary *)dic {
+    self = [self initWithName:dic[@"name"] thumbnail:dic[@"thumbnail"] photo:dic[@"photo"] description:dic[@"description"]];
+    return self;
+}
+
 - (id)init {
     self = [self initWithName:@"Undifined" thumbnail:@"Undifined" photo:@"Undifined" description:@"Undifined"];
     return self;
