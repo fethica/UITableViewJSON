@@ -3,6 +3,8 @@ UITableViewJSON
 
 An example of how to use [AFNetworking](http://github.com/AFNetworking/AFNetworking) library to load an `UITableView` with JSON file.
 
+<img src="http://fethica.github.io/UITableViewJSON/images/screenshot.png" alt="UITableViewJASON example Screenshot" />
+
 ### The JSON file
 
 [characters.json](http://github.com/fethica/UITableViewJSON/blob/gh-pages/characters.json) an array of objects:
@@ -94,7 +96,7 @@ To initialise each JSON objet in it:
 }
 ```
 
-* Add '#import `UIImageView+AFNetworking.h"` it's a category to add an additional behaviour to `UIImageView` class
+* Add `#import "UIImageView+AFNetworking.h"` it's a category to add an additional behaviour to `UIImageView` class
 * Load the `UITableView` with the `NSArray` initialized in the `loadNinja` function
 
 ```objectivec
