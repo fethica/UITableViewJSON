@@ -41,6 +41,7 @@
 		CAA4C5DB19A782CF00665299 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA4C5D319A782CF00665299 /* UIWebView+AFNetworking.m */; };
 		CAA4C5DE19A7840900665299 /* 50-50.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAA4C5DC19A7840900665299 /* 50-50.jpg */; };
 		CAA4C5DF19A7840900665299 /* 300-300.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAA4C5DD19A7840900665299 /* 300-300.jpg */; };
+		CAA4C5E219A784F700665299 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA4C5E119A784F700665299 /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,8 @@
 		CAA4C5D319A782CF00665299 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		CAA4C5DC19A7840900665299 /* 50-50.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "50-50.jpg"; sourceTree = "<group>"; };
 		CAA4C5DD19A7840900665299 /* 300-300.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "300-300.jpg"; sourceTree = "<group>"; };
+		CAA4C5E019A784F700665299 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		CAA4C5E119A784F700665299 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +184,8 @@
 				CAA4C59F19A7803300665299 /* TableViewController.h */,
 				CAA4C5A019A7803300665299 /* TableViewController.m */,
 				CAA4C57C19A77E3000665299 /* Main.storyboard */,
+				CAA4C5E019A784F700665299 /* DetailViewController.h */,
+				CAA4C5E119A784F700665299 /* DetailViewController.m */,
 				CAA4C58219A77E3000665299 /* Images.xcassets */,
 				CAA4C57119A77E3000665299 /* Supporting Files */,
 			);
@@ -374,6 +379,7 @@
 				CAA4C57B19A77E3000665299 /* AppDelegate.m in Sources */,
 				CAA4C5BD19A782C400665299 /* AFSecurityPolicy.m in Sources */,
 				CAA4C5A119A7803300665299 /* TableViewController.m in Sources */,
+				CAA4C5E219A784F700665299 /* DetailViewController.m in Sources */,
 				CAA4C5BA19A782C400665299 /* AFHTTPRequestOperationManager.m in Sources */,
 				CAA4C5BE19A782C400665299 /* AFURLConnectionOperation.m in Sources */,
 				CAA4C5D819A782CF00665299 /* UIImageView+AFNetworking.m in Sources */,
