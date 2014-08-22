@@ -39,6 +39,8 @@
 		CAA4C5D919A782CF00665299 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA4C5CF19A782CF00665299 /* UIProgressView+AFNetworking.m */; };
 		CAA4C5DA19A782CF00665299 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA4C5D119A782CF00665299 /* UIRefreshControl+AFNetworking.m */; };
 		CAA4C5DB19A782CF00665299 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA4C5D319A782CF00665299 /* UIWebView+AFNetworking.m */; };
+		CAA4C5DE19A7840900665299 /* 50-50.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAA4C5DC19A7840900665299 /* 50-50.jpg */; };
+		CAA4C5DF19A7840900665299 /* 300-300.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CAA4C5DD19A7840900665299 /* 300-300.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +111,8 @@
 		CAA4C5D119A782CF00665299 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		CAA4C5D219A782CF00665299 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		CAA4C5D319A782CF00665299 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		CAA4C5DC19A7840900665299 /* 50-50.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "50-50.jpg"; sourceTree = "<group>"; };
+		CAA4C5DD19A7840900665299 /* 300-300.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "300-300.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +190,8 @@
 		CAA4C57119A77E3000665299 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CAA4C5DC19A7840900665299 /* 50-50.jpg */,
+				CAA4C5DD19A7840900665299 /* 300-300.jpg */,
 				CAA4C57219A77E3000665299 /* UITableViewJSON-Info.plist */,
 				CAA4C57319A77E3000665299 /* InfoPlist.strings */,
 				CAA4C57619A77E3000665299 /* main.m */,
@@ -338,9 +344,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAA4C5DF19A7840900665299 /* 300-300.jpg in Resources */,
 				CAA4C58319A77E3000665299 /* Images.xcassets in Resources */,
 				CAA4C57519A77E3000665299 /* InfoPlist.strings in Resources */,
 				CAA4C57E19A77E3000665299 /* Main.storyboard in Resources */,
+				CAA4C5DE19A7840900665299 /* 50-50.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

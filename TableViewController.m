@@ -7,6 +7,9 @@
 //
 
 #import "TableViewController.h"
+#import "AFHTTPRequestOperationManager.h"
+#import "UIImageView+AFNetworking.h"
+#import "Ninja.h"
 
 @interface TableViewController ()
 
@@ -30,6 +33,8 @@
     [super viewDidLoad];
     
     self.title = @"Ninjas";
+    
+    [self loadNinjas];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -58,16 +63,21 @@
     return self.ninjas.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    cell.textLabel.text = [self.ninjas[indexPath.row] name];
+    [cell.imageView setImageWithURL:[NSURL URLWithString:[self.ninjas[indexPath.row] thumbnail]]
+                   placeholderImage:[UIImage imageNamed:@"50-50.jpg"]];
     
     return cell;
 }
-*/
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 50.0f;
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -117,5 +127,44 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)loadNinjas {
+    
+    NSURL *url = [[NSURL alloc] initWithString:@"http://fethica.github.io/UITableViewJSON/characters.json"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSArray *jsonArray = (NSArray *)responseObject;
+        
+        NSMutableArray *tempNinjas = [[NSMutableArray alloc] init];
+        
+        for (NSDictionary *dic in jsonArray) {
+            Ninja *ninja = [[Ninja alloc] initWithDictionary:dic];
+            [tempNinjas addObject:ninja];
+        }
+        
+        
+        self.ninjas = [[NSArray alloc] initWithArray:tempNinjas];
+        tempNinjas = nil;
+        
+        [self.tableView reloadData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Ninjas"
+                                                            message:[error localizedDescription]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Ok"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+    }];
+    
+    [operation start];
+}
+
 
 @end
