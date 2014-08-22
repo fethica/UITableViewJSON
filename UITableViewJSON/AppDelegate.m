@@ -2,29 +2,20 @@
 //  AppDelegate.m
 //  UITableViewJSON
 //
-//  Created by El Hassasna Fethi on 6/2/13.
-//  Copyright (c) 2013 Fethi El Hassasna. All rights reserved.
+//  Created by El Hassasna Fethi on 8/22/14.
+//  Copyright (c) 2014 Fethi El Hassasna. All rights reserved.
 //
 
 #import "AppDelegate.h"
-
-#import "ViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-    
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
-    
-    self.window.rootViewController = navController;
-    [self.window makeKeyAndVisible];
     return YES;
 }
-
+							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
