@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="SB0-cD-MEN">
     <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
@@ -48,12 +49,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2jd-6H-HLP">
-                                <rect key="frame" x="20" y="73" width="280" height="202"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2jd-6H-HLP">
+                                <rect key="frame" x="20" y="28" width="280" height="202"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="7LU-tp-5Qf"/>
+                                    <constraint firstAttribute="height" constant="202" id="r9x-wA-1aS"/>
+                                </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sfV-GX-uk2">
-                                <rect key="frame" x="20" y="283" width="280" height="265"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sfV-GX-uk2">
+                                <rect key="frame" x="20" y="238" width="280" height="322"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -62,8 +67,19 @@
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2jd-6H-HLP" firstAttribute="top" secondItem="CNg-et-3eY" secondAttribute="bottom" constant="8" id="9q2-uE-VfD"/>
+                            <constraint firstItem="sfV-GX-uk2" firstAttribute="top" secondItem="2jd-6H-HLP" secondAttribute="bottom" constant="8" symbolic="YES" id="JBP-TR-Zrd"/>
+                            <constraint firstItem="oFS-bp-Mab" firstAttribute="top" secondItem="sfV-GX-uk2" secondAttribute="bottom" constant="20" symbolic="YES" id="KIK-dW-XuW"/>
+                            <constraint firstItem="2jd-6H-HLP" firstAttribute="centerX" secondItem="sfV-GX-uk2" secondAttribute="centerX" id="NcY-pd-iLf"/>
+                            <constraint firstItem="sfV-GX-uk2" firstAttribute="top" secondItem="2jd-6H-HLP" secondAttribute="bottom" constant="8" symbolic="YES" id="UcK-nN-nnw"/>
+                            <constraint firstAttribute="trailing" secondItem="sfV-GX-uk2" secondAttribute="trailing" constant="20" id="rNi-m7-0Gs"/>
+                            <constraint firstItem="sfV-GX-uk2" firstAttribute="leading" secondItem="cYv-69-liD" secondAttribute="leading" constant="20" id="vmg-29-zgM"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YaF-3Y-z88"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="desc" destination="sfV-GX-uk2" id="7kD-TH-HS1"/>
                         <outlet property="photo" destination="2jd-6H-HLP" id="Cw8-h6-pwp"/>
