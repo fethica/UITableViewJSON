@@ -51,31 +51,44 @@ To initialise each JSON objet in it:
 ```
 
 ### Load the data into an `NSArray`
-* Add `#import "AFJSONRequestOperation.h"` to the `ViewController` class
+* Add `#import "AFHTTPRequestOperationManager.h"` to the `TableViewController` class
 
-* Create `loadNinja` function in the `ViewController` class
+* Create `loadNinja` function in the `TableViewController` class
 
 ```objectivec
 - (void)loadNinjas {
     
-    NSURL *json = [[NSURL alloc] initWithString:@"http://fethica.github.io/UITableViewJSON/characters.json"];
+    NSURL *url = [[NSURL alloc] initWithString:@"http://fethica.github.io/UITableViewJSON/characters.json"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:json];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFJSONResponseSerializer serializer];
     
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSArray *jsonArray = (NSArray *)responseObject;
         
         NSMutableArray *tempNinjas = [[NSMutableArray alloc] init];
         
-        for (NSDictionary *dic in JSON) {
+        for (NSDictionary *dic in jsonArray) {
             Ninja *ninja = [[Ninja alloc] initWithDictionary:dic];
             [tempNinjas addObject:ninja];
         }
         
-        self.ninjas = [[NSArray alloc] initWithArray:tempNinjas];
         
-        [self.table reloadData];
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-        NSLog(@"NSError: %@", error.localizedDescription);
+        self.ninjas = [[NSArray alloc] initWithArray:tempNinjas];
+        tempNinjas = nil;
+        
+        [self.tableView reloadData];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Ninjas"
+                                                            message:[error localizedDescription]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Ok"
+                                                  otherButtonTitles:nil];
+        [alertView show];
     }];
     
     [operation start];
@@ -90,7 +103,6 @@ To initialise each JSON objet in it:
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.title = @"Ninjas";
-    self.ninjas = [[NSMutableArray alloc] init];
     
     [self loadNinjas];
 }
@@ -102,16 +114,12 @@ To initialise each JSON objet in it:
 ```objectivec
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]
-                initWithStyle:UITableViewCellStyleDefault
-                reuseIdentifier:@"cell"];
-    }
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     cell.textLabel.text = [self.ninjas[indexPath.row] name];
     [cell.imageView setImageWithURL:[NSURL URLWithString:[self.ninjas[indexPath.row] thumbnail]]
                    placeholderImage:[UIImage imageNamed:@"50-50.jpg"]];
+    
     return cell;
 }
 ```
