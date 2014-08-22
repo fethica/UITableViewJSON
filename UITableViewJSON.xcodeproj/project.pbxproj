@@ -21,6 +21,7 @@
 		CAA4C59419A77E3000665299 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CAA4C59219A77E3000665299 /* InfoPlist.strings */; };
 		CAA4C59619A77E3000665299 /* UITableViewJSONTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA4C59519A77E3000665299 /* UITableViewJSONTests.m */; };
 		CAA4C5A119A7803300665299 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA4C5A019A7803300665299 /* TableViewController.m */; };
+		CAA4C5A419A780B100665299 /* Ninja.m in Sources */ = {isa = PBXBuildFile; fileRef = CAA4C5A319A780B100665299 /* Ninja.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		CAA4C59519A77E3000665299 /* UITableViewJSONTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITableViewJSONTests.m; sourceTree = "<group>"; };
 		CAA4C59F19A7803300665299 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewController.h; path = ../TableViewController.h; sourceTree = "<group>"; };
 		CAA4C5A019A7803300665299 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewController.m; path = ../TableViewController.m; sourceTree = "<group>"; };
+		CAA4C5A219A780B100665299 /* Ninja.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ninja.h; sourceTree = "<group>"; };
+		CAA4C5A319A780B100665299 /* Ninja.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ninja.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,8 @@
 		CAA4C57019A77E3000665299 /* UITableViewJSON */ = {
 			isa = PBXGroup;
 			children = (
+				CAA4C5A219A780B100665299 /* Ninja.h */,
+				CAA4C5A319A780B100665299 /* Ninja.m */,
 				CAA4C57919A77E3000665299 /* AppDelegate.h */,
 				CAA4C57A19A77E3000665299 /* AppDelegate.m */,
 				CAA4C59F19A7803300665299 /* TableViewController.h */,
@@ -251,6 +256,7 @@
 			files = (
 				CAA4C57B19A77E3000665299 /* AppDelegate.m in Sources */,
 				CAA4C5A119A7803300665299 /* TableViewController.m in Sources */,
+				CAA4C5A419A780B100665299 /* Ninja.m in Sources */,
 				CAA4C57719A77E3000665299 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
