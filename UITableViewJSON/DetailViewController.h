@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Ninja.h"
 
 @interface DetailViewController : UIViewController
+
+@property (nonatomic) Ninja *ninja;
 
 @end
