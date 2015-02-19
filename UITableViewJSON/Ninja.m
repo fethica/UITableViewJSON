@@ -10,7 +10,7 @@
 
 @implementation Ninja
 
-//The designed initializer
+//The designated initializer
 - (id)initWithName:(NSString *)aName
          thumbnail:(NSString *)aThumbnail
              photo:(NSString *)aPhoto
