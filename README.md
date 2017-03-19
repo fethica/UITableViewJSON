@@ -51,23 +51,18 @@ To initialise each JSON objet in it:
 ```
 
 ### Load the data into an `NSArray`
-* Add `#import "AFHTTPRequestOperationManager.h"` to the `TableViewController` class
+* Add `#import "AFHTTPSessionManager.h"` to the `TableViewController` class
 
 * Create `loadNinja` function in the `TableViewController` class
 
 ```objectivec
 - (void)loadNinjas {
     
-    NSURL *url = [[NSURL alloc] initWithString:@"http://fethica.github.io/UITableViewJSON/characters.json"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    operation.responseSerializer = [AFJSONResponseSerializer serializer];
-    
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager GET:@"https://fethica.github.io/UITableViewJSON/characters.json" parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         
         NSArray *jsonArray = (NSArray *)responseObject;
-        
         NSMutableArray *tempNinjas = [[NSMutableArray alloc] init];
         
         for (NSDictionary *dic in jsonArray) {
@@ -75,13 +70,12 @@ To initialise each JSON objet in it:
             [tempNinjas addObject:ninja];
         }
         
-        
         self.ninjas = [[NSArray alloc] initWithArray:tempNinjas];
         tempNinjas = nil;
         
         [self.tableView reloadData];
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
         
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Ninjas"
                                                             message:[error localizedDescription]
@@ -90,21 +84,22 @@ To initialise each JSON objet in it:
                                                   otherButtonTitles:nil];
         [alertView show];
     }];
-    
-    [operation start];
+
 }
 ```
 
 * Call the the function in the `viewDidLoad` to initialise the NSArray property
 
 ```objectivec
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view, typically from a nib.
     self.title = @"Ninjas";
     
     [self loadNinjas];
+    
+    // Remove empty cells
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 ```
 
@@ -112,11 +107,11 @@ To initialise each JSON objet in it:
 * Load the `UITableView` with the `NSArray` initialized in the `loadNinja` function
 
 ```objectivec
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     cell.textLabel.text = [self.ninjas[indexPath.row] name];
+    
     [cell.imageView setImageWithURL:[NSURL URLWithString:[self.ninjas[indexPath.row] thumbnail]]
                    placeholderImage:[UIImage imageNamed:@"50-50.jpg"]];
     
