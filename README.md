@@ -1,7 +1,7 @@
 UITableViewJSON
 ===============
 
-An example of how to use [AFNetworking](http://github.com/AFNetworking/AFNetworking) library to load an `UITableView` with JSON file.
+An example to show how to use [AFNetworking](http://github.com/AFNetworking/AFNetworking) library to load an `UITableView` with JSON file.
 
 <img src="http://fethica.github.io/UITableViewJSON/images/screenshot.png" alt="UITableViewJASON example Screenshot" />
 
@@ -28,9 +28,7 @@ An example of how to use [AFNetworking](http://github.com/AFNetworking/AFNetwork
 ]
 ```
 
-### The Ninja object
-
-To initialise each JSON objet in it:
+### The Ninja model object
 
 ```objectivec
 @interface Ninja : NSObject
@@ -51,9 +49,9 @@ To initialise each JSON objet in it:
 ```
 
 ### Load the data into an `NSArray`
-* Add `#import "AFHTTPSessionManager.h"` to the `TableViewController` class
+* Add `#import "AFHTTPSessionManager.h"` to the `TableViewController`
 
-* Create `loadNinja` function in the `TableViewController` class
+* Create `loadNinja` function in the `TableViewController`
 
 ```objectivec
 - (void)loadNinjas {
@@ -88,7 +86,7 @@ To initialise each JSON objet in it:
 }
 ```
 
-* Call the the function in the `viewDidLoad` to initialise the NSArray property
+* Call the function in the `viewDidLoad` to initialise the NSArray property
 
 ```objectivec
 - (void)viewDidLoad {
@@ -103,7 +101,7 @@ To initialise each JSON objet in it:
 }
 ```
 
-* Add `#import "UIImageView+AFNetworking.h"` it's a category to add an additional behaviour to `UIImageView` class
+* Add `#import "UIImageView+AFNetworking.h"` a category to add an additional behaviour to `UIImageView` class
 * Load the `UITableView` with the `NSArray` initialized in the `loadNinja` function
 
 ```objectivec
