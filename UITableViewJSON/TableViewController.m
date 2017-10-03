@@ -104,12 +104,17 @@
         
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error Retrieving Ninjas"
-                                                            message:[error localizedDescription]
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"Ok"
-                                                  otherButtonTitles:nil];
-        [alertView show];
+        UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"Error Retrieving Ninjas"
+                                                                         message:[error localizedDescription]
+                                                                  preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok"
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:nil];
+        
+        [alertVC addAction:okAction];
+        
+        [self presentViewController:alertVC animated:YES completion:nil];
     }];
 
 }
